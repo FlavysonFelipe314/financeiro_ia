@@ -11,7 +11,7 @@ class UpdateEntradaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class UpdateEntradaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'conta_id' => ['required'],
+            'title' => ['required','max:255'],
+            'category' => ['required','max:255'],
+            'payment_method' => ['required'],
+            'amount' => ['required','numeric','min:0'],
         ];
     }
 }
