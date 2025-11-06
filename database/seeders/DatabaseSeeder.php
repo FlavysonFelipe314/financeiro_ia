@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Conta;
+use App\Models\Entrada;
+use App\Models\Saida;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,11 +18,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        Conta::factory(5)->create();
+
+        Entrada::factory(20)->create();
+        Saida::factory(20)->create();
     }
 }
